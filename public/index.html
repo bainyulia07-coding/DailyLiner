@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>DailyLiner — Your day, your AI</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-mark">
+          ✓
+        </div>
+
+        <div>
+          <div class="brand-name">
+            DailyLiner
+          </div>
+
+          <div class="brand-tag">
+            Your day. Your AI.
+          </div>
+        </div>
+      </div>
+
+      <nav>
+
+        <button
+          class="nav-item active"
+          data-page="dashboard"
+        >
+          <span>⌂</span>
+          Dashboard
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="schedule"
+        >
+          <span>▦</span>
+          My Schedule
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="calendar"
+        >
+          <span>▣</span>
+          Calendar
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="tasks"
+        >
+          <span>✓</span>
+          Tasks
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="goals"
+        >
+          <span>◎</span>
+          Goals
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="timers"
+        >
+          <span>◷</span>
+          Timers
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="whatif"
+        >
+          <span>◇</span>
+          What-If
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="ai-mini">
+
+          <div class="bot-face">
+            ✦
+          </div>
+
+          <div>
+            <strong>
+              Lina AI
+            </strong>
+
+            <small>
+              Ready to help
+            </small>
+          </div>
+
+          <span class="online-dot"></span>
+
+        </div>
+
+        <button
+          class="nav-item"
+          data-page="settings"
+        >
+          <span>⚙</span>
+          Settings
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="about"
+        >
+          <span>ⓘ</span>
+          About
+        </button>
+
+        <button
+          class="nav-item"
+          data-page="contact"
+        >
+          <span>✉</span>
+          Contact
+        </button>
+
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <header class="topbar">
+
+        <div class="topbar-brand">
+          <div class="top-logo">
+            ✓
+          </div>
+
+          <strong>
+            DailyLiner
+          </strong>
+        </div>
+
+        <nav class="top-links">
+
+          <button data-page="dashboard">
+            Home
+          </button>
+
+          <button data-page="about">
+            About Us
+          </button>
+
+          <button data-page="contact">
+            Contact
+          </button>
+
+        </nav>
+
+        <div class="top-actions">
+
+          <button
+            class="icon-btn"
+            id="openTimer"
+            title="Quick timer"
+          >
+            ◷
+          </button>
+
+          <button
+            class="assistant-open"
+            id="openAssistant"
+          >
+            <span>✦</span>
+            Ask Lina
+          </button>
+
+        </div>
+
+      </header>
+
+      <div class="page-header">
+
+        <div>
+
+          <p
+            class="eyebrow"
+            id="dateLabel"
+          ></p>
+
+          <h1 id="pageTitle">
+            Good afternoon, Guest!
+            <span>👋</span>
+          </h1>
+
+        </div>
+
+      </div>
+
+      <!-- DASHBOARD -->
+
+      <section
+        class="page active"
+        id="page-dashboard"
+      >
+
+        <div class="hero-grid">
+
+          <div class="welcome-card">
+
+            <div>
+
+              <p class="eyebrow">
+                TODAY'S FOCUS
+              </p>
+
+              <h2>
+                Make today count.
+              </h2>
+
+              <p class="muted">
+                You have
+                <strong id="remainingCount">
+                  0 tasks
+                </strong>
+                left. Lina can help you
+                organize the rest.
+              </p>
+
+            </div>
+
+            <button
+              class="primary"
+              id="planDayBtn"
+            >
+              ✦ Plan my day
+            </button>
+
+          </div>
+
+          <div class="progress-card">
+
+            <div
+              class="progress-ring"
+              id="progressRing"
+            >
+              <span id="progressText">
+                0%
+              </span>
+            </div>
+
+            <div>
+
+              <p class="eyebrow">
+                DAILY PROGRESS
+              </p>
+
+              <h3 id="progressHeadline">
+                Let's get started.
+              </h3>
+
+              <p class="muted">
+                Complete tasks to fill
+                your day.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="quick-grid">
+
+          <button
+            class="quick-card"
+            data-quick="timer"
+          >
+            <span>⏱️</span>
+
+            <strong>
+              Set a timer
+            </strong>
+
+            <small>
+              “Remind me in 13 minutes.”
+            </small>
+          </button>
+
+          <button
+            class="quick-card"
+            data-quick="event"
+          >
+            <span>📅</span>
+
+            <strong>
+              Add an event
+            </strong>
+
+            <small>
+              Plan something years ahead.
+            </small>
+          </button>
+
+          <button
+            class="quick-card"
+            data-quick="custom"
+          >
+            <span>🎨</span>
+
+            <strong>
+              Customize
+            </strong>
+
+            <small>
+              Make DailyLiner yours.
+            </small>
+          </button>
+
+        </div>
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              TIMELINE
+            </p>
+
+            <h2>
+              Today's Schedule
+            </h2>
+
+          </div>
+
+          <button
+            class="ghost"
+            id="addTaskBtn"
+          >
+            + Add task
+          </button>
+
+        </div>
+
+        <div
+          class="timeline"
+          id="timeline"
+        ></div>
+
+        <div class="two-col">
+
+          <div class="panel">
+
+            <div class="section-head compact">
+
+              <div>
+
+                <p class="eyebrow">
+                  GOALS
+                </p>
+
+                <h2>
+                  Keep moving forward
+                </h2>
+
+              </div>
+
+              <button
+                class="text-btn"
+                data-page-link="goals"
+              >
+                View all →
+              </button>
+
+            </div>
+
+            <div id="goalPreview"></div>
+
+          </div>
+
+          <div class="panel tip-card">
+
+            <div class="bot-face big">
+              ✦
+            </div>
+
+            <div>
+
+              <p class="eyebrow">
+                LINA'S TIP
+              </p>
+
+              <h3 id="tipTitle">
+                Protect your focus.
+              </h3>
+
+              <p
+                id="tipText"
+                class="muted"
+              >
+                Try grouping similar
+                tasks together instead of
+                switching between them.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="panel upcoming-panel">
+
+          <div class="section-head compact">
+
+            <div>
+
+              <p class="eyebrow">
+                UP NEXT
+              </p>
+
+              <h2>
+                Future events
+              </h2>
+
+            </div>
+
+            <button
+              class="text-btn"
+              data-page-link="calendar"
+            >
+              Open calendar →
+            </button>
+
+          </div>
+
+          <div id="upcomingEvents"></div>
+
+        </div>
+
+      </section>
+
+      <!-- SCHEDULE -->
+
+      <section
+        class="page"
+        id="page-schedule"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              PLAN
+            </p>
+
+            <h2>
+              My Schedule
+            </h2>
+
+            <p class="muted">
+              Active plans for today,
+              tomorrow, this week,
+              and upcoming.
+            </p>
+
+          </div>
+
+          <button
+            class="primary small"
+            id="scheduleWithAi"
+          >
+            ✦ Schedule with Lina
+          </button>
+
+        </div>
+
+        <div class="schedule-toolbar">
+
+          <button
+            class="day-chip active"
+            data-scope="today"
+          >
+            Today
+          </button>
+
+          <button
+            class="day-chip"
+            data-scope="tomorrow"
+          >
+            Tomorrow
+          </button>
+
+          <button
+            class="day-chip"
+            data-scope="week"
+          >
+            This week
+          </button>
+
+          <button
+            class="day-chip"
+            data-scope="upcoming"
+          >
+            Upcoming
+          </button>
+
+        </div>
+
+        <div
+          class="timeline large"
+          id="scheduleTimeline"
+        ></div>
+
+      </section>
+
+      <!-- CALENDAR -->
+
+      <section
+        class="page"
+        id="page-calendar"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              DATES & EVENTS
+            </p>
+
+            <h2>
+              Calendar
+            </h2>
+
+            <p class="muted">
+              Keep track of anything
+              from today to years from
+              now.
+            </p>
+
+          </div>
+
+          <button
+            class="primary small"
+            id="addEventBtn"
+          >
+            + Add event
+          </button>
+
+        </div>
+
+        <div class="calendar-controls">
+
+          <button
+            class="ghost"
+            id="prevMonth"
+          >
+            ←
+          </button>
+
+          <h2 id="calendarTitle"></h2>
+
+          <button
+            class="ghost"
+            id="nextMonth"
+          >
+            →
+          </button>
+
+          <button
+            class="text-btn"
+            id="todayMonth"
+          >
+            Today
+          </button>
+
+        </div>
+
+        <div
+          class="calendar-grid"
+          id="calendarGrid"
+        ></div>
+
+        <div class="panel event-list-panel">
+
+          <div class="section-head compact">
+
+            <div>
+
+              <p class="eyebrow">
+                SCHEDULED EVENTS
+              </p>
+
+              <h2>
+                Upcoming
+              </h2>
+
+            </div>
+
+          </div>
+
+          <div id="eventList"></div>
+
+        </div>
+
+      </section>
+
+      <!-- TASKS -->
+
+      <section
+        class="page"
+        id="page-tasks"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              TO-DO
+            </p>
+
+            <h2>
+              Tasks
+            </h2>
+
+          </div>
+
+          <button
+            class="primary small"
+            id="addTaskBtn2"
+          >
+            + Add task
+          </button>
+
+        </div>
+
+        <div class="filter-row">
+
+          <button
+            class="filter active"
+            data-filter="all"
+          >
+            All
+          </button>
+
+          <button
+            class="filter"
+            data-filter="open"
+          >
+            Open
+          </button>
+
+          <button
+            class="filter"
+            data-filter="done"
+          >
+            Completed
+          </button>
+
+        </div>
+
+        <div
+          class="task-list"
+          id="taskList"
+        ></div>
+
+      </section>
+
+      <!-- GOALS -->
+
+      <section
+        class="page"
+        id="page-goals"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              LONG-TERM
+            </p>
+
+            <h2>
+              Your Goals
+            </h2>
+
+          </div>
+
+          <button
+            class="primary small"
+            id="addGoalBtn"
+          >
+            + Add goal
+          </button>
+
+        </div>
+
+        <div
+          class="goal-grid"
+          id="goalGrid"
+        ></div>
+
+      </section>
+
+      <!-- TIMERS -->
+
+      <section
+        class="page"
+        id="page-timers"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              REMINDERS
+            </p>
+
+            <h2>
+              Timers & Reminders
+            </h2>
+
+            <p class="muted">
+              Perfect for laundry,
+              cooking, study sessions,
+              breaks, and anything you
+              don't want to forget.
+            </p>
+
+          </div>
+
+          <button
+            class="primary small"
+            id="addTimerBtn"
+          >
+            + New timer
+          </button>
+
+        </div>
+
+        <div
+          class="timer-grid"
+          id="timerGrid"
+        ></div>
+
+      </section>
+
+      <!-- WHAT IF -->
+
+      <section
+        class="page"
+        id="page-whatif"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              SIMULATE
+            </p>
+
+            <h2>
+              What-If Mode
+            </h2>
+
+            <p class="muted">
+              Explore a change before
+              you commit to it.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="whatif-box">
+
+          <div class="whatif-icon">
+            ◇
+          </div>
+
+          <h3>
+            What would happen if...
+          </h3>
+
+          <p class="muted">
+            Ask Lina to simulate a
+            change to your day.
+          </p>
+
+          <div class="suggestions">
+
+            <button
+              data-prompt="What if I sleep at 11 PM instead of 10 PM?"
+            >
+              I sleep later tonight
+            </button>
+
+            <button
+              data-prompt="What if I add a 2 hour gaming session tonight?"
+            >
+              I add 2 hours of gaming
+            </button>
+
+            <button
+              data-prompt="What if my homework takes one extra hour?"
+            >
+              My homework takes longer
+            </button>
+
+          </div>
+
+          <div
+            class="whatif-result"
+            id="whatifResult"
+          >
+            <p class="muted">
+              Your simulation will
+              appear here.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- SETTINGS -->
+
+      <section
+        class="page"
+        id="page-settings"
+      >
+
+        <div class="section-head">
+
+          <div>
+
+            <p class="eyebrow">
+              PREFERENCES
+            </p>
+
+            <h2>
+              Settings & Customization
+            </h2>
+
+          </div>
+
+        </div>
+
+        <div class="settings-grid">
+
+          <div
+            class="settings-panel profile-panel"
+          >
+
+            <h3>
+              Profile
+            </h3>
+
+            <label>
+              Your name
+
+              <input
+                id="nameInput"
+                value="Guest"
+                maxlength="40"
+              />
+            </label>
+
+            <button
+              class="primary profile-save"
+              id="saveSettings"
+            >
+              Save name
+            </button>
+
+          </div>
+
+          <div class="settings-panel">
+
+            <h3>
+              Theme
+            </h3>
+
+            <label>
+              Color theme
+
+              <select id="themeSelect">
+
+                <option value="lavender">
+                  Lavender
+                </option>
+
+                <option value="ocean">
+                  Ocean
+                </option>
+
+                <option value="sunset">
+                  Sunset
+                </option>
+
+                <option value="forest">
+                  Forest
+                </option>
+
+                <option value="midnight">
+                  Midnight
+                </option>
+
+              </select>
+            </label>
+
+            <label>
+              Background style
+
+              <select id="bgSelect">
+
+                <option value="clean">
+                  Clean
+                </option>
+
+                <option value="soft">
+                  Soft
+                </option>
+
+                <option value="night">
+                  Night
+                </option>
+
+              </select>
+            </label>
+
+            <label>
+              Custom bar color
+
+              <input
+                id="barColor"
+                type="color"
+                value="#ffffff"
+              />
+            </label>
+
+            <label>
+              Text color
+
+              <input
+                id="fontColor"
+                type="color"
+                value="#17204a"
+              />
+            </label>
+
+            <label>
+              Bar transparency
+
+              <input
+                id="barOpacity"
+                type="range"
+                min="25"
+                max="100"
+                value="82"
+              />
+
+              <small>
+                <span id="barOpacityValue">
+                  82%
+                </span>
+                opaque
+              </small>
+
+            </label>
+
+            <label>
+              Background image
+
+              <input
+                id="bgImageInput"
+                type="file"
+                accept="image/*"
+              />
+            </label>
+
+            <button
+              class="text-btn"
+              id="clearBgImage"
+            >
+              Remove background image
+            </button>
+
+            <small
+              id="bgImageStatus"
+              class="muted"
+            >
+              No custom image selected.
+            </small>
+
+            <button
+              class="ghost"
+              id="resetTheme"
+            >
+              Reset appearance
+            </button>
+
+          </div>
+
+          <div class="settings-panel">
+
+            <h3>
+              Reminder sound
+            </h3>
+
+            <p class="muted">
+              Upload your own audio for
+              timers. It stays on this
+              browser.
+            </p>
+
+            <input
+              id="soundInput"
+              type="file"
+              accept="audio/*"
+            />
+
+            <button
+              class="ghost"
+              id="testSound"
+            >
+              Test reminder sound
+            </button>
+
+            <button
+              class="text-btn"
+              id="clearSound"
+            >
+              Remove custom sound
+            </button>
+
+            <small
+              id="soundStatus"
+              class="muted"
+            ></small>
+
+          </div>
+
+          <div class="settings-panel">
+
+            <h3>
+              Notifications
+            </h3>
+
+            <p class="muted">
+              Allow browser notifications
+              so timer alerts can still
+              get your attention.
+            </p>
+
+            <button
+              class="primary"
+              id="notificationBtn"
+            >
+              Enable notifications
+            </button>
+
+            <small
+              id="notificationStatus"
+              class="muted"
+            ></small>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ABOUT -->
+
+      <section
+        class="page"
+        id="page-about"
+      >
+
+        <div class="about-hero">
+
+          <p class="eyebrow">
+            ABOUT DAILYLINER
+          </p>
+
+          <h2>
+            Plan your day. Adapt to life.
+          </h2>
+
+          <p>
+            DailyLiner combines planning,
+            reminders, long-term events,
+            and Lina AI in one calm
+            workspace.
+          </p>
+
+        </div>
+
+        <div class="two-col">
+
+          <div class="panel">
+
+            <p class="eyebrow">
+              HOW IT WORKS
+            </p>
+
+            <h3>
+              One assistant, three kinds
+              of planning.
+            </h3>
+
+            <p class="muted">
+              <strong>Tasks</strong>
+              go to My Schedule.
+              <strong>Events</strong>
+              go to Calendar.
+              <strong>Timers</strong>
+              become quick reminders.
+              Lina helps you choose the
+              right one from natural
+              language.
+            </p>
+
+          </div>
+
+          <div class="panel">
+
+            <p class="eyebrow">
+              CONTACT
+            </p>
+
+            <h3>
+              Built for everyday life.
+            </h3>
+
+            <p class="muted">
+              Questions, feedback, or
+              competition details can go
+              here later. This section is
+              ready for your final contact
+              information.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- CONTACT -->
+
+      <section
+        class="page"
+        id="page-contact"
+      >
+
+        <div class="about-hero">
+
+          <p class="eyebrow">
+            CONTACT
+          </p>
+
+          <h2>
+            Get in touch.
+          </h2>
+
+          <p>
+            Have a question, suggestion,
+            or other enquiry? You can
+            reach me using the details
+            below.
+          </p>
+
+        </div>
+
+        <div class="two-col">
+
+          <div class="panel">
+
+            <p class="eyebrow">
+              EMAIL
+            </p>
+
+            <h3>
+              putrabain69@gmail.com
+            </h3>
+
+            <p class="muted">
+              Email me for questions,
+              feedback, or enquiries.
+            </p>
+
+            <a
+              class="primary"
+              href="mailto:putrabain69@gmail.com"
+              style="display:inline-block;text-decoration:none"
+            >
+              Email me
+            </a>
+
+          </div>
+
+          <div class="panel">
+
+            <p class="eyebrow">
+              PHONE
+            </p>
+
+            <h3>
+              +62 877-8169-1607
+            </h3>
+
+            <p class="muted">
+              You can contact me by phone
+              using this number.
+            </p>
+
+            <a
+              class="primary"
+              href="tel:+6287781691607"
+              style="display:inline-block;text-decoration:none"
+            >
+              Call me
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- AI DRAWER -->
+
+  <div
+    class="assistant-drawer"
+    id="assistantDrawer"
+  >
+
+    <div class="drawer-head">
+
+      <div class="assistant-title">
+
+        <div class="bot-face">
+          ✦
+        </div>
+
+        <div>
+
+          <strong>
+            Lina
+          </strong>
+
+          <small>
+            AI Daily Assistant
+          </small>
+
+        </div>
+
+      </div>
+
+      <button
+        class="icon-btn"
+        id="closeAssistant"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      class="chat"
+      id="chat"
+    ></div>
+
+    <div class="quick-actions">
+
+      <button
+        data-prompt="Plan my day"
+      >
+        Plan my day
+      </button>
+
+      <button
+        data-prompt="Set a timer for 13 minutes to check the washing machine"
+      >
+        13-min timer
+      </button>
+
+      <button
+        data-prompt="Add an event on 2027-12-17 called Movie Night"
+      >
+        Add event
+      </button>
+
+      <button
+        data-prompt="What should I prioritize today?"
+      >
+        Prioritize
+      </button>
+
+    </div>
+
+    <div class="composer">
+
+      <input
+        id="chatInput"
+        placeholder="Tell Lina what you need..."
+      />
+
+      <button id="sendChat">
+        ➤
+      </button>
+
+    </div>
+
+    <div
+      class="mode-note"
+      id="modeNote"
+    >
+      Lina AI is connected to your planner
+    </div>
+
+  </div>
+
+  <div
+    class="overlay"
+    id="overlay"
+  ></div>
+
+  <!-- TASK MODAL -->
+
+  <div
+    class="modal"
+    id="taskModal"
+  >
+
+    <div class="modal-head">
+
+      <h2 id="taskModalTitle">
+        Add a task
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <form id="taskForm">
+
+      <label>
+        Task name
+
+        <input
+          id="taskName"
+          required
+          placeholder="e.g. Study for physics"
+        />
+      </label>
+
+      <div class="form-row">
+
+        <label>
+          Date
+
+          <input
+            id="taskDate"
+            type="date"
+            required
+          />
+        </label>
+
+        <label>
+          Time
+
+          <input
+            id="taskTime"
+            type="time"
+            required
+          />
+        </label>
+
+        <label>
+          Duration
+
+          <input
+            id="taskDuration"
+            type="number"
+            min="5"
+            value="60"
+            required
+          />
+
+          <small>
+            minutes
+          </small>
+
+        </label>
+
+      </div>
+
+      <label>
+        Priority
+
+        <select id="taskPriority">
+
+          <option value="high">
+            High
+          </option>
+
+          <option
+            value="medium"
+            selected
+          >
+            Medium
+          </option>
+
+          <option value="low">
+            Low
+          </option>
+
+        </select>
+
+      </label>
+
+      <label>
+        Link to goal
+
+        <select id="taskGoal">
+          <option value="">
+            No goal
+          </option>
+        </select>
+
+        <small>
+          Optional — completing this
+          task adds progress to the
+          linked goal.
+        </small>
+
+      </label>
+
+      <button
+        class="primary full"
+        id="taskSubmit"
+        type="submit"
+      >
+        Add to schedule
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- GOAL MODAL -->
+
+  <div
+    class="modal"
+    id="goalModal"
+  >
+
+    <div class="modal-head">
+
+      <h2>
+        Add a goal
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <form id="goalForm">
+
+      <label>
+        Goal
+
+        <input
+          id="goalName"
+          required
+          placeholder="e.g. Learn JavaScript"
+        />
+      </label>
+
+      <label>
+        Daily time
+
+        <input
+          id="goalTime"
+          type="number"
+          min="10"
+          value="30"
+          required
+        />
+
+        <small>
+          minutes per day
+        </small>
+
+      </label>
+
+      <button
+        class="primary full"
+        type="submit"
+      >
+        Create goal
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- TIMER MODAL -->
+
+  <div
+    class="modal"
+    id="timerModal"
+  >
+
+    <div class="modal-head">
+
+      <h2>
+        Set a timer
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <form id="timerForm">
+
+      <label>
+        Reminder name
+
+        <input
+          id="timerName"
+          placeholder="e.g. Washing machine"
+          required
+        />
+      </label>
+
+      <div class="form-row">
+
+        <label>
+          Hours
+
+          <input
+            id="timerHours"
+            type="number"
+            min="0"
+            max="999"
+            value="0"
+            required
+          />
+        </label>
+
+        <label>
+          Minutes
+
+          <input
+            id="timerMinutes"
+            type="number"
+            min="0"
+            max="59"
+            value="13"
+            required
+          />
+        </label>
+
+        <label>
+          Seconds
+
+          <input
+            id="timerSeconds"
+            type="number"
+            min="0"
+            max="59"
+            value="0"
+            required
+          />
+        </label>
+
+      </div>
+
+      <button
+        class="primary full"
+        type="submit"
+      >
+        Start timer
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- EVENT MODAL -->
+
+  <div
+    class="modal"
+    id="eventModal"
+  >
+
+    <div class="modal-head">
+
+      <h2>
+        Add an event
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <form id="eventForm">
+
+      <label>
+        Event name
+
+        <input
+          id="eventName"
+          required
+          placeholder="e.g. Competition / Movie Night"
+        />
+      </label>
+
+      <div class="form-row">
+
+        <label>
+          Date
+
+          <input
+            id="eventDate"
+            type="date"
+            required
+          />
+        </label>
+
+        <label>
+          Time
+
+          <input
+            id="eventTime"
+            type="time"
+          />
+        </label>
+
+      </div>
+
+      <label>
+        Description
+
+        <textarea
+          id="eventDescription"
+          rows="3"
+          placeholder="Optional details"
+        ></textarea>
+
+      </label>
+
+      <label>
+        Link to goal
+
+        <select id="eventGoal">
+          <option value="">
+            No goal
+          </option>
+        </select>
+
+        <small>
+          Optional
+        </small>
+
+      </label>
+
+      <button
+        class="primary full"
+        type="submit"
+      >
+        Add to calendar
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- CONFIRMATION GUI -->
+
+  <div
+    class="modal"
+    id="confirmModal"
+  >
+
+    <div class="modal-head">
+
+      <h2 id="confirmTitle">
+        Are you sure?
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <p
+      id="confirmMessage"
+      class="muted"
+    ></p>
+
+    <div class="modal-actions">
+
+      <button
+        class="ghost close-modal"
+      >
+        Cancel
+      </button>
+
+      <button
+        class="primary danger-btn"
+        id="confirmAction"
+      >
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- INFORMATION GUI -->
+
+  <div
+    class="modal"
+    id="infoModal"
+  >
+
+    <div class="modal-head">
+
+      <h2 id="infoTitle">
+        Notice
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <p
+      id="infoMessage"
+      class="muted"
+    ></p>
+
+    <button
+      class="primary full close-modal"
+    >
+      OK
+    </button>
+
+  </div>
+
+  <!-- TIMER ALARM GUI -->
+
+  <div
+    class="modal"
+    id="alarmModal"
+  >
+
+    <div class="modal-head">
+
+      <h2>
+        ⏰ Timer finished
+      </h2>
+
+    </div>
+
+    <p class="muted">
+      Your timer is finished:
+    </p>
+
+    <h3 id="alarmTitle">
+      Timer
+    </h3>
+
+    <button
+      class="primary full"
+      id="stopAlarmBtn"
+    >
+      Stop alarm
+    </button>
+
+  </div>
+
+  <!-- MULTIPLE EVENT GUI -->
+
+  <div
+    class="modal"
+    id="eventChooserModal"
+  >
+
+    <div class="modal-head">
+
+      <h2>
+        Choose an event
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      id="eventChooserList"
+      class="event-chooser"
+    ></div>
+
+  </div>
+
+  <!-- EVENT DETAILS GUI -->
+
+  <div
+    class="modal"
+    id="eventDetailsModal"
+  >
+
+    <div class="modal-head">
+
+      <h2 id="eventDetailsTitle">
+        Event
+      </h2>
+
+      <button
+        class="icon-btn close-modal"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="event-details">
+
+      <p
+        id="eventDetailsDate"
+        class="eyebrow"
+      ></p>
+
+      <p
+        id="eventDetailsDescription"
+        class="muted"
+      ></p>
+
+      <p
+        id="eventDetailsGoal"
+        class="muted"
+      ></p>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
