@@ -1698,3 +1698,688 @@ nav {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   MOBILE / PHONE LAYOUT
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  /* ---------- GENERAL ---------- */
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-width: 0;
+  }
+
+  .app-shell {
+    display: block;
+    min-height: 100vh;
+  }
+
+
+  /* ---------- SIDEBAR ---------- */
+
+  /* Turn the desktop sidebar into a bottom navigation bar */
+  .sidebar {
+    width: 100%;
+    height: 64px;
+
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+
+    padding: 6px 8px;
+
+    border-right: 0;
+    border-top: 1px solid var(--bar-border);
+
+    display: block;
+
+    z-index: 50;
+  }
+
+  /* Hide the large desktop branding */
+  .sidebar .brand {
+    display: none;
+  }
+
+  /* Hide the Lina mini-card from the sidebar */
+  .sidebar-bottom {
+    display: none;
+  }
+
+  /* Navigation becomes a horizontal row */
+  .sidebar nav {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 2px;
+  }
+
+  .nav-item {
+    flex: 1;
+
+    min-width: 0;
+    height: 52px;
+
+    padding: 6px 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2px;
+
+    border-radius: 10px;
+
+    text-align: center;
+  }
+
+  /* Keep the navigation icons visible */
+  .nav-item span {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* If the navigation contains text outside the icon span,
+     keep it small enough for mobile */
+  .nav-item:not(:has(span)) {
+    font-size: 10px;
+  }
+
+
+  /* ---------- MAIN CONTENT ---------- */
+
+  .main {
+    width: 100%;
+    margin-left: 0;
+
+    padding-bottom: 78px;
+
+    min-width: 0;
+  }
+
+
+  /* ---------- TOP BAR ---------- */
+
+  .topbar {
+    width: 100%;
+    height: 62px;
+
+    padding: 0 14px;
+
+    gap: 10px;
+
+    position: sticky;
+    top: 0;
+  }
+
+  .topbar-brand {
+    display: flex;
+
+    min-width: 0;
+    flex: 1;
+  }
+
+  .topbar-brand > div:last-child {
+    min-width: 0;
+  }
+
+  .topbar-brand strong {
+    white-space: nowrap;
+  }
+
+  .top-actions {
+    flex-shrink: 0;
+  }
+
+  .assistant-open {
+    padding: 9px 11px;
+  }
+
+  .assistant-open span {
+    display: none;
+  }
+
+  .top-actions .icon-btn {
+    display: none;
+  }
+
+
+  /* ---------- PAGE HEADER / PAGES ---------- */
+
+  .page-header {
+    padding: 20px 15px 0;
+  }
+
+  .page {
+    padding: 20px 15px 25px;
+  }
+
+  .page h1 {
+    font-size: 25px;
+  }
+
+  .page h2 {
+    font-size: 19px;
+  }
+
+  .page h3 {
+    font-size: 16px;
+  }
+
+
+  /* ---------- DASHBOARD ---------- */
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .welcome-card {
+    min-height: 0;
+
+    padding: 20px;
+
+    display: block;
+  }
+
+  .welcome-card h2 {
+    font-size: 25px;
+  }
+
+  .welcome-card .primary {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .progress-card {
+    padding: 18px;
+
+    gap: 15px;
+  }
+
+  .progress-ring {
+    width: 82px;
+    height: 82px;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+  }
+
+  .quick-card {
+    padding: 13px;
+  }
+
+  .quick-card strong {
+    font-size: 13px;
+  }
+
+  .quick-card small {
+    font-size: 11px;
+  }
+
+
+  /* ---------- SECTION HEADERS ---------- */
+
+  .section-head {
+    gap: 8px;
+
+    align-items: center;
+
+    margin: 22px 0 12px;
+  }
+
+  .section-head h2 {
+    font-size: 18px;
+  }
+
+  .section-head .ghost,
+  .section-head .text-btn {
+    padding: 6px 7px;
+
+    font-size: 11px;
+  }
+
+
+  /* ---------- TWO COLUMN PANELS ---------- */
+
+  .two-col,
+  .settings-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .panel,
+  .settings-panel {
+    padding: 16px;
+  }
+
+
+  /* ---------- TIMELINE ---------- */
+
+  .timeline {
+    gap: 7px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 48px minmax(0, 1fr) 32px;
+
+    gap: 6px;
+  }
+
+  .time {
+    font-size: 10px;
+
+    white-space: nowrap;
+  }
+
+  .event {
+    min-width: 0;
+
+    padding: 11px 10px;
+
+    min-height: 50px;
+  }
+
+  .event strong {
+    font-size: 12px;
+
+    overflow-wrap: anywhere;
+  }
+
+  .event small {
+    font-size: 10px;
+  }
+
+  .check {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  /* ---------- SCHEDULE ---------- */
+
+  .schedule-toolbar {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding-bottom: 3px;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .day-chip {
+    flex-shrink: 0;
+  }
+
+  .filter-row {
+    overflow-x: auto;
+
+    padding-bottom: 3px;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter {
+    flex-shrink: 0;
+  }
+
+
+  /* ---------- TASKS ---------- */
+
+  .task-row {
+    padding: 12px;
+
+    gap: 9px;
+
+    align-items: flex-start;
+  }
+
+  .task-info {
+    min-width: 0;
+  }
+
+  .task-info strong {
+    font-size: 13px;
+
+    overflow-wrap: anywhere;
+  }
+
+  .task-info small {
+    font-size: 10px;
+
+    line-height: 1.4;
+  }
+
+  .task-actions {
+    margin-left: 0;
+
+    width: 100%;
+
+    padding-left: 39px;
+
+    gap: 4px;
+  }
+
+  .priority {
+    margin-left: 0;
+  }
+
+
+  /* ---------- GOALS ---------- */
+
+  .goal-grid {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+  .goal-card {
+    padding: 16px;
+  }
+
+  .goal-heading {
+    gap: 8px;
+  }
+
+  .goal-card h3 {
+    font-size: 15px;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* ---------- TIMERS ---------- */
+
+  .timer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+  .timer-card {
+    padding: 17px;
+  }
+
+  .timer-time {
+    font-size: 30px;
+  }
+
+  .timer-actions {
+    gap: 6px;
+  }
+
+  .timer-actions button {
+    padding: 8px 10px;
+  }
+
+
+  /* ---------- CALENDAR ---------- */
+
+  .calendar-controls {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 5px;
+  }
+
+  .calendar-controls h2 {
+    min-width: 0;
+
+    flex: 1;
+
+    font-size: 17px;
+  }
+
+  .calendar-grid {
+    gap: 3px;
+  }
+
+  .calendar-head {
+    padding: 5px 2px;
+
+    font-size: 8px;
+  }
+
+  .calendar-cell {
+    min-height: 64px;
+
+    padding: 5px;
+
+    border-radius: 8px;
+  }
+
+  .calendar-day {
+    font-size: 10px;
+  }
+
+  .calendar-event {
+    display: none;
+  }
+
+
+  /* ---------- UPCOMING EVENTS ---------- */
+
+  .event-preview,
+  .event-row {
+    gap: 8px;
+
+    padding: 10px 0;
+
+    flex-wrap: wrap;
+  }
+
+
+  /* ---------- WHAT IF ---------- */
+
+  .whatif-box {
+    padding: 22px 16px;
+  }
+
+  .suggestions {
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    padding-bottom: 4px;
+  }
+
+  .suggestions button {
+    flex-shrink: 0;
+  }
+
+  .whatif-result {
+    padding: 13px;
+  }
+
+
+  /* ---------- ABOUT ---------- */
+
+  .about-hero {
+    padding: 25px 18px;
+  }
+
+  .about-hero h2 {
+    font-size: 28px;
+  }
+
+  .about-hero p:last-child {
+    font-size: 14px;
+  }
+
+
+  /* ---------- SETTINGS ---------- */
+
+  .profile-panel {
+    max-width: none;
+  }
+
+  .profile-panel #nameInput {
+    max-width: none;
+  }
+
+  .settings-panel input,
+  .settings-panel select,
+  .settings-panel textarea {
+    width: 100%;
+
+    max-width: 100%;
+  }
+
+
+  /* ---------- AI ASSISTANT ---------- */
+
+  .assistant-drawer {
+    right: 8px;
+    left: 8px;
+    bottom: 72px;
+
+    width: auto;
+
+    height: calc(100vh - 88px);
+
+    max-height: none;
+
+    border-radius: 18px;
+  }
+
+  .chat {
+    padding: 12px;
+  }
+
+  .bubble {
+    max-width: 90%;
+
+    font-size: 12px;
+  }
+
+  .quick-actions {
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .composer {
+    padding: 8px;
+  }
+
+  .composer input {
+    min-width: 0;
+  }
+
+
+  /* ---------- MODALS ---------- */
+
+  .modal {
+    width: calc(100vw - 24px);
+
+    max-height: calc(100vh - 24px);
+
+    padding: 17px;
+
+    border-radius: 17px;
+  }
+
+  .modal-head {
+    margin-bottom: 12px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-wrap: wrap;
+
+    justify-content: stretch;
+  }
+
+  .modal-actions button {
+    flex: 1;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .topbar {
+    padding: 0 10px;
+  }
+
+  .page-header,
+  .page {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-card {
+    padding: 15px;
+  }
+
+  .progress-ring {
+    width: 72px;
+    height: 72px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 43px minmax(0, 1fr) 30px;
+  }
+
+  .time {
+    font-size: 9px;
+  }
+
+  .event {
+    padding: 9px;
+  }
+
+  .sidebar {
+    height: 60px;
+  }
+
+  .nav-item {
+    height: 48px;
+  }
+
+  .nav-item span {
+    font-size: 16px;
+  }
+
+  .main {
+    padding-bottom: 70px;
+  }
+
+  .assistant-drawer {
+    bottom: 67px;
+  }
+}
